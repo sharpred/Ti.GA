@@ -1,0 +1,22 @@
+<project name="ticookies" default="both">
+    <property environment="env"/>
+    <property file="build.properties" />
+    <target name="setup">
+        <propertyfile file = "${basedir}/iphone/manifest">
+            <entry key="version" value="${buildno}"/>
+        </propertyfile>
+    </target>
+    <target name="iphone">
+        <exec dir="${basedir}/iphone" executable="${titanium.build}" failonerror="true"/>
+        <move file="iphone/ti.ga-iphone-${buildno}.zip" todir="iphone/dist"/>
+    </target>
+    <target name="android">
+        <exec dir="${basedir}/android" executable="ant" failonerror="true"/>
+    </target>
+    <target name="test">
+        <exec dir="${basedir}/iphone" executable="${titanium.py}" failonerror="true">
+            <arg line="run"/>
+        </exec>
+    </target>
+    <target name="both" depends="iphone, android"/>
+</project>
