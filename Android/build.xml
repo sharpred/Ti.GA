@@ -5,7 +5,7 @@
 
 	<property name="ti.module.root" location="${basedir}"/>
     <property environment="env"/>
-    <property file="build.properties" />
+    <property file="../build.properties" />
 
 	<!-- Copy documentation subdirectories -->
 	<mkdir dir="${basedir}/documentation"/>
