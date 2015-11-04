@@ -3,10 +3,11 @@
     <property file="build.properties" />
     <target name="iphone">
         <exec dir="${basedir}/iphone" executable="${titanium.build}" failonerror="true"/>
-        <move file="iphone/ti.ga-iphone-${buildno}.zip" todir="iphone/dist"/>
+        <move file="iphone/ti.ga-iphone-${buildno}.zip" todir="dist"/>
     </target>
     <target name="android">
         <exec dir="${basedir}/android" executable="ant" failonerror="true"/>
+        <move file="Android/dist/ti.ga-android-${buildno}.zip" todir="dist"/>
     </target>
     <target name="test">
         <exec dir="${basedir}/iphone" executable="${titanium.py}" failonerror="true">
